@@ -14,7 +14,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>1.8</maven.compiler.release>
         <jsp.jstl.version>1.2</jsp.jstl.version>
-
     </properties>
 
     <dependencies>
@@ -39,6 +38,17 @@
             <artifactId>jstl</artifactId>
             <version>${jsp.jstl.version}</version>
         </dependency>
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>2.0.1.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>6.0.13.Final</version>
+        </dependency>
+
     </dependencies>
 
     <build>
