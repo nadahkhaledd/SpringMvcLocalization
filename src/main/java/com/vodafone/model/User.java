@@ -1,17 +1,29 @@
 package com.vodafone.model;
 
+import jakarta.validation.constraints.NotBlank;
 
+import javax.persistence.*;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+@Entity
 public class User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    @Column(nullable = false, length = 30)
     @NotBlank
     private String firstName;
+
+    @Column(nullable = false, length = 30)
     @NotBlank
     private String lastName;
-    @NotNull()
-    @Min(value = 2000)
+
+    @Column(nullable = false)
+    @NotNull
+    @Min(2000)
     private Integer salary;
 
     public String getFirstName() {
@@ -40,10 +52,9 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", salary=" + salary +
-                '}';
+        return String.format("\n-------------------------------------------\nUser\n" +
+                        "name: %s %s\t\t\tsalary: %d\n" +
+                        "-------------------------------------------",
+                firstName, lastName, salary);
     }
 }
